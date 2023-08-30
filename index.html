@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(201, 250, 161);
+        }
+        #question{
+            background-color: lightblue;
+            border: solid;
+            border-radius: 10px;
+            width: 60%;
+            height: 10vh;
+            font-size: 20px;
+            padding-top: 15px;
+        }
+        #option1{
+            background-color: lightpink;
+            width: 50%;
+            height: 8vh;
+            border: solid;
+            border-radius: 10px;
+            font-size: 20px;
+            padding-top: 10px;
+        }
+        #option2{
+            background-color: lightpink;
+            width: 50%;
+            height: 8vh;
+            border: solid;
+            border-radius: 10px;
+            font-size: 20px;
+            padding-top: 10px;
+        }
+        #option3{
+            background-color: lightpink;
+            width: 50%;
+            height: 8vh;
+            border: solid;
+            border-radius: 10px;
+            font-size: 20px;
+            padding-top: 10px;
+        }
+        button{
+            background-color: rgb(121, 121, 245);
+            height: 30px;
+        }
+        #score{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body><center>
+    <h1>Quiz on animals</h1>
+    <br>
+    <img src="https://th.bing.com/th/id/OIP.tB5x7gUQPqewaeF37OxEIAHaE5?pid=ImgDet&rs=1">
+    <br><br>
+    <div  id="mark">Score:</div>
+    <br>
+    <div id="question"></div>
+    <br>
+    <div onclick="checkAnswer(this)" id="option1"></div>
+    <br>
+    <div onclick="checkAnswer(this)"  id="option2"></div>
+    <br>
+    <div onclick="checkAnswer(this)"  id="option3"></div>
+    <br>
+    <button onclick="nextquestion()">Next question</button>
+    <script>
+mcq=[question1={
+    que:"What do pandas eat?",
+    opt1:"fish",
+    opt2:"bamboo leaves",
+    opt3:"cat food",
+    cop:"bamboo leaves",
+},
+question2={
+    que:"Though they sound happy,what animals'laugh' is a reaction to being thretened?",
+    opt1:"hyena",
+    opt2:"ox",
+    opt3:"baboon",
+    cop:"hyena",
+
+},
+question3={
+    que:"Capable of exceeding 186 miles per hour, what is the fastest creature in the animal kingdom?",
+    opt1:"horsefly",
+    opt2:"cheetah",
+    opt3:"peregrine falcon",
+    cop:"peregrine falcon",
+},
+question4={
+    que:"Known for its intelligence, which dog breed has been found capable of understanding more than a thousand words?",
+    opt1:"French Bulldog",
+    opt2:"Border Collie",
+    opt3:"Dachshund",
+    cop:"Border Collie",},
+    
+    question5={
+    que:"Which animal species can live in extremes of both heat and cold, from −20 °F to 120 °F?",
+    opt1:"Bactrian camel",
+    opt2:"polar bear",
+    opt3:"chuckwalla iguanas",
+    cop:"Bactrian camel"}]
+    let score=0
+let i=0 
+document.getElementById("question").innerText=mcq[i].que
+document.getElementById("option1").innerText=mcq[i].opt1
+document.getElementById("option2").innerText=mcq[i].opt2
+document.getElementById("option3").innerText=mcq[i].opt3
+  
+  function nextquestion(){
+    i=i+1
+    document.getElementById("question").innerText=mcq[i].que
+document.getElementById("option1").innerText=mcq[i].opt1
+document.getElementById("option2").innerText=mcq[i].opt2
+document.getElementById("option3").innerText=mcq[i].opt3
+document.getElementById("option1").style.backgroundColor="lightpink"
+document.getElementById("option2").style.backgroundColor="lightpink"
+document.getElementById("option3").style.backgroundColor="lightpink"
+
+  }
+
+ 
+function checkAnswer(clickedOption){
+    if(clickedOption.innerText==mcq[i].cop){
+        clickedOption.style.backgroundColor="green"
+        score=score+1
+        document.getElementById("mark").innerText=score
+    }
+    else{
+        clickedOption.style.backgroundColor="red"
+    }
+}
+  </script>
+    </center>
+</body>
+</html>
